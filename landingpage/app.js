@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const server = http.createServer((request, response) => {
-   if(request.url === '/') {
+   if(request.url === "/") {
        fs.readFile('index.html', 'utf8', (errors, contents) => {
            response.writeHead(200, {'Content-Type': 'text/html'});
            response.write(contents);
@@ -13,6 +13,7 @@ const server = http.createServer((request, response) => {
             response.writeHead(200, {'Content-type': 'text/html'});
             response.write(contents);
             response.end();
+            
         });
    }
     else if (request.url === "/dojos/new") {
@@ -24,6 +25,8 @@ const server = http.createServer((request, response) => {
    }
    else {
        response.end('that the URL requested is not available.');
+   
+       
    }
 });
 server.listen(6789);
